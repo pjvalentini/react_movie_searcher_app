@@ -39,8 +39,28 @@ export default class Home extends Component {
       this.refs.movieSearcher.value = "";
     });
   }
+  // to see your data before render...you need to wrap your request in a componentWillMount() function.
+  componentWillMount(){
+    let api_key = '1a18ddb3'
+    // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
+    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=top+gun`
+
+    axios.get(api_url, {
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      }
+    }).then((results) => {
+      console.log(results)
+      this.setState({
+        title: results.data
+      })
+      console.log(results.data)
+      this.refs.movieSearcher.value = "";
+    });
+  }
   render() {
-      console.log(this.state.movie)
+      console.log(this.state.title)
       const displayMovieSearch = () => {
       }
       return (
