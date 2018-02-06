@@ -13,18 +13,40 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: undefined
+      title: undefined
     };
   }
   searchMovies(e) {
     e.preventDefault();
 
-    let movie = this.refs.movieSearch.value.split(" ").join("+").toLowerCase();
+    let movie = this.refs.movieSearcher.value.split(" ").join("+").toLowerCase();
     console.log(movie);
 
-    let api_key = ""
+    let api_key = '1a18ddb3'
+    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=toy+story`
+
+    axios.get(api_url, {
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      }
+    }).then((results) => {
+      console.log(results)
+      this.setState({
+        title: results.data
+      })
+      console.log(results.data)
+      this.refs.movieSearcher.value = "";
+    });
   }
   render() {
       console.log(this.state.movie)
-  }
+      const displayMovieSearch = () => {
+      }
+      return (
+        <div>
+          <h1>React Movie Searcher</h1>
+        </div>
+      )
+   }
 }
