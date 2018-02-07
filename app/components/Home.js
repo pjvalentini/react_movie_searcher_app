@@ -59,26 +59,32 @@ export default class Home extends Component {
       this.refs.movieSearcher.value = "";
     });
   }
+
   render() {
       console.log(this.state.title)
       const displayMovieSearch = () => {
         if(this.state.title) {
           return (
             <div>
-              <h3>Your Movie Query</h3>
-              <p>Title: {this.state.title.Title}</p>
-              <p>Year: {this.state.title.Year}</p>
-              <p>Director: {this.state.title.Director}</p>
+              <img className="movie-poster" src={this.state.title.Poster}/>
+              <div className="movie-title">Title: {this.state.title.Title}</div>
+              <div className="movie-genre">Genre: {this.state.title.Genre}</div>
+              <div className="movie-year">Year: {this.state.title.Year}</div>
+              <div className="movie-plot">Plot: {this.state.title.Plot}</div>
+              <div className="movie-director">Director: {this.state.title.Director}</div>
+              <div className="movie-actors">Actors: {this.state.title.Actors}</div>
+              <div className="movie-awards">Awards: {this.state.title.Awards}</div>
+              <div className="movie-rated">Rated: {this.state.title.Rated}</div>
             </div>
           )
         }
       }
       return (
         <div style={{width: '15%'}}>
+          <h3 className="text-center">React Movie Searcher</h3>
           <form onSubmit={this.searchMovies.bind(this)}>
-            <label>Type A Movie Title</label>
-            <input type="text" ref="movieSearcher"/>
-          <input type="submit"/>
+            <input type="text" ref="movieSearcher" placeholder="Type A Movie Title Here"/>
+            <input type="submit"/>
           </form>
           <br></br>
           {displayMovieSearch()}
