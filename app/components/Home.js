@@ -23,7 +23,7 @@ export default class Home extends Component {
     console.log(movie);
 
     let api_key = '1a18ddb3'
-    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=toy+story`
+    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
 
     axios.get(api_url, {
       headers: {
@@ -39,11 +39,12 @@ export default class Home extends Component {
       this.refs.movieSearcher.value = "";
     });
   }
-  // to see your data before render...you need to wrap your request in a componentWillMount() function.
-  componentWillMount(){
+  // to see your data before render...you need to wrap your request in a componentWillMount() function
+  componentWillMount() {
+
     let api_key = '1a18ddb3'
     // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
-    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=top+gun`
+    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`
 
     axios.get(api_url, {
       headers: {
@@ -55,17 +56,32 @@ export default class Home extends Component {
       this.setState({
         title: results.data
       })
-      console.log(results.data)
       this.refs.movieSearcher.value = "";
     });
   }
   render() {
       console.log(this.state.title)
       const displayMovieSearch = () => {
+        if(this.state.title) {
+          return (
+            <div>
+              <h3>Your Movie Query</h3>
+              <p>Title: {this.state.title.Title}</p>
+              <p>Year: {this.state.title.Year}</p>
+              <p>Director: {this.state.title.Director}</p>
+            </div>
+          )
+        }
       }
       return (
-        <div>
-          <h1>React Movie Searcher</h1>
+        <div style={{width: '15%'}}>
+          <form onSubmit={this.searchMovies.bind(this)}>
+            <label>Type A Movie Title</label>
+            <input type="text" ref="movieSearcher"/>
+          <input type="submit"/>
+          </form>
+          <br></br>
+          {displayMovieSearch()}
         </div>
       )
    }
