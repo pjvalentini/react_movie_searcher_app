@@ -21,44 +21,47 @@ export default class Home extends Component {
 
     let movie = this.refs.movieSearcher.value.split(" ").join("+").toLowerCase();
     console.log(movie);
+    if(movie.length > 3){
+      let api_key = '1a18ddb3'
+      let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
 
-    let api_key = '1a18ddb3'
-    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
-
-    axios.get(api_url, {
-      headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json'
-      }
-    }).then((results) => {
-      console.log(results)
-      this.setState({
-        title: results.data
-      })
-      console.log(results.data)
-      this.refs.movieSearcher.value = "";
-    });
+      axios.get(api_url, {
+        headers: {
+          'content-type': 'application/json',
+          'accept': 'application/json'
+        }
+      }).then((results) => {
+        console.log(results)
+        this.setState({
+          title: results.data
+        })
+        console.log(results.data)
+      });
+    }
   }
+
+
+
   // to see your data before render...you need to wrap your request in a componentWillMount() function
-  componentWillMount() {
-
-    let api_key = '1a18ddb3'
-    // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
-    let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`
-
-    axios.get(api_url, {
-      headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json'
-      }
-    }).then((results) => {
-      console.log(results)
-      this.setState({
-        title: results.data
-      })
-      this.refs.movieSearcher.value = "";
-    });
-  }
+  // componentWillMount() {
+  //
+  //   let api_key = '1a18ddb3'
+  //   // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
+  //   let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`
+  //
+  //   axios.get(api_url, {
+  //     headers: {
+  //       'content-type': 'application/json',
+  //       'accept': 'application/json'
+  //     }
+  //   }).then((results) => {
+  //     console.log(results)
+  //     this.setState({
+  //       title: results.data
+  //     })
+  //     this.refs.movieSearcher.value = "";
+  //   });
+  // }
 
   render() {
       console.log(this.state.title)
@@ -68,14 +71,15 @@ export default class Home extends Component {
             <div className="movie-search-movie">
               <img className="movie-poster" src={this.state.title.Poster}/>
               <div className="movie-search-info">
-                <div className="movie-title">Title: {this.state.title.Title}</div>
-                <div className="movie-year">Year: {this.state.title.Year}</div>
-                <div className="movie-plot">Plot: {this.state.title.Plot}</div>
-                <div className="movie-director">Director: {this.state.title.Director}</div>
-                <div className="movie-actors">Actors: {this.state.title.Actors}</div>
-                <div className="movie-genre">Genre: {this.state.title.Genre}</div>
-                <div className="movie-awards">Awards: {this.state.title.Awards}</div>
-                <div className="movie-rated">Rated: {this.state.title.Rated}</div>
+                <div className="movie-title"><span>Title: </span><span style={{color: "slategray"}}>{this.state.title.Title}</span></div>
+                <div className="movie-year"><span>Year: </span><span style={{color: "slategray"}}>{this.state.title.Year}</span></div>
+                <div className="movie-plot"><span>Plot: </span><span style={{color: "slategray"}}>{this.state.title.Plot}</span></div>
+                <div className="movie-director"><span>Director: </span><span style={{color: "slategray"}}>{this.state.title.Director}</span></div>
+                <div className="movie-actors"><span>Actors: </span><span style={{color: "slategray"}}>{this.state.title.Actors}</span></div>
+                <div className="movie-genre"><span>Genre: </span><span style={{color: "slategray"}}>{this.state.title.Genre}</span></div>
+                <div className="movie-awards"><span>Awards: </span><span style={{color: "slategray"}}>{this.state.title.Awards}</span></div>
+                <div className="movie-budget"><span>Box Office: </span><span style={{color: "slategray"}}>{this.state.title.BoxOffice}</span></div>
+                <div className="movie-rated"><span>Rated: </span><span style={{color: "slategray"}}>{this.state.title.Rated}</span></div>
               </div>
             </div>
           )
@@ -84,8 +88,14 @@ export default class Home extends Component {
       return (
         <div>
           <h3 className="movie-header">React Movie Searcher</h3>
-          <form onSubmit={this.searchMovies.bind(this)}>
-            <input className="movie-input" type="text" ref="movieSearcher" placeholder="Type A Movie Title Here"/>
+          <form>
+            <input
+               className="movie-input"
+               type="text"
+               ref="movieSearcher"
+               placeholder="Type A Movie Title Here"
+               onChange={this.searchMovies.bind(this)}
+            />
           </form>
           <br></br>
           {displayMovieSearch()}

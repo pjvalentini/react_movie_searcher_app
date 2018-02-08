@@ -13,9 +13,11 @@ body {
   font-size: 40px;
   font-weight: 100;
   letter-spacing: 8px;
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
   text-transform: uppercase;
-  background-color: orange;
+  background-color: #ff9100;
+	border-radius: 5px;
+	border: 2px solid slategray;
 }
 
 .movie-input {
@@ -53,9 +55,13 @@ body {
 	margin-bottom: 8px;
 }
 
+span {
+	color: #ff9100;
+}
+
 .movie-year {
   font-style: italic;
-	color: #AAA;
+	color: #ff9100;
 	font-size: 15px;
 	margin-bottom: 20px;
 }
@@ -86,6 +92,11 @@ body {
 .movie-awards {
   font-size: 15px;
   margin-bottom: 15px;
+}
+
+.movie-budget {
+	font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .movie-rated {
