@@ -7,6 +7,7 @@ body {
 	padding: 40px;
 }
 
+
 .movie-header {
   text-align: center;
   font-size: 40px;
@@ -14,6 +15,7 @@ body {
   letter-spacing: 8px;
   margin: 0 auto 20px;
   text-transform: uppercase;
+  background-color: orange;
 }
 
 .movie-input {
@@ -24,4 +26,69 @@ body {
   height: 48px;
   font-size: 22px;
   font-weight: 300;
+}
+
+.movie-search-movie {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.movie-poster {
+  align-content: center;
+  width: 35%;
+  margin-right: 5%;
+  /* border: solid 2px slategrey;
+  border-radius: 5px; */
+}
+
+.movie-search-info {
+	float: left;
+	width: 60%;
+  padding-right: 23px;
+}
+
+.movie-title {
+  font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.movie-year {
+  font-style: italic;
+	color: #AAA;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+.movie-plot {
+  font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.movie-director,
+.movie-actors {
+  font-size: 14px;
+}
+
+.movie-director {
+  margin-bottom: 5px;
+}
+
+.movie-actors {
+  margin-bottom: 15px;
+}
+
+.movie-genre {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.movie-awards {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.movie-rated {
+  font-size: 15px;
+  margin-bottom: 5px;
 }

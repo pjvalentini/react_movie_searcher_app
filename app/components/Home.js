@@ -65,16 +65,18 @@ export default class Home extends Component {
       const displayMovieSearch = () => {
         if(this.state.title) {
           return (
-            <div>
+            <div className="movie-search-movie">
               <img className="movie-poster" src={this.state.title.Poster}/>
-              <div className="movie-title">Title: {this.state.title.Title}</div>
-              <div className="movie-genre">Genre: {this.state.title.Genre}</div>
-              <div className="movie-year">Year: {this.state.title.Year}</div>
-              <div className="movie-plot">Plot: {this.state.title.Plot}</div>
-              <div className="movie-director">Director: {this.state.title.Director}</div>
-              <div className="movie-actors">Actors: {this.state.title.Actors}</div>
-              <div className="movie-awards">Awards: {this.state.title.Awards}</div>
-              <div className="movie-rated">Rated: {this.state.title.Rated}</div>
+              <div className="movie-search-info">
+                <div className="movie-title">Title: {this.state.title.Title}</div>
+                <div className="movie-year">Year: {this.state.title.Year}</div>
+                <div className="movie-plot">Plot: {this.state.title.Plot}</div>
+                <div className="movie-director">Director: {this.state.title.Director}</div>
+                <div className="movie-actors">Actors: {this.state.title.Actors}</div>
+                <div className="movie-genre">Genre: {this.state.title.Genre}</div>
+                <div className="movie-awards">Awards: {this.state.title.Awards}</div>
+                <div className="movie-rated">Rated: {this.state.title.Rated}</div>
+              </div>
             </div>
           )
         }
