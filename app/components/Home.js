@@ -80,11 +80,10 @@ export default class Home extends Component {
         }
       }
       return (
-        <div style={{width: '15%'}}>
-          <h3 className="text-center">React Movie Searcher</h3>
+        <div>
+          <h3 className="movie-header">React Movie Searcher</h3>
           <form onSubmit={this.searchMovies.bind(this)}>
-            <input type="text" ref="movieSearcher" placeholder="Type A Movie Title Here"/>
-            <input type="submit"/>
+            <input className="movie-input" type="text" ref="movieSearcher" placeholder="Type A Movie Title Here"/>
           </form>
           <br></br>
           {displayMovieSearch()}
