@@ -4,9 +4,9 @@
 // This is the babel way
 import React, {Component} from 'react';
 
-//fetch does not work for api calls in react
-//axios does
-//https://medium.com/@thejasonfile/fetch-vs-axios-js-for-making-http-requests-2b261cdd3af5
+// fetch does not work for api calls in react
+// axios does
+// https://medium.com/@thejasonfile/fetch-vs-axios-js-for-making-http-requests-2b261cdd3af5
 import axios from 'axios';
 
 export default class Home extends Component {
@@ -69,6 +69,7 @@ export default class Home extends Component {
         if(this.state.title) {
           return (
             <div className="movie-search-movie">
+              {/* wrap this img tag in an atag...add the according redirect target: blank... */}
               <img className="movie-poster" src={this.state.title.Poster}/>
               <div className="movie-search-info">
                 <div className="movie-title"><span>Title: </span><span style={{color: "slategray"}}>{this.state.title.Title}</span></div>
