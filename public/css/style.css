@@ -9,6 +9,7 @@ body {
 
 
 .movie-header {
+	color: white;
   text-align: center;
   font-size: 40px;
   font-weight: 100;
@@ -17,7 +18,6 @@ body {
   text-transform: uppercase;
   background-color: #ff9100;
 	border-radius: 5px;
-	border: 2px solid slategray;
 }
 
 .movie-input {
@@ -35,12 +35,23 @@ body {
   margin: 0 auto;
 }
 
+.movie-poster-div {
+	float: right;
+	width: 35%;
+	margin-right: 36px;
+}
+
 .movie-poster {
+	margin-left: 27px;
   align-content: center;
-  width: 35%;
+  width: 82%;
   margin-right: 5%;
-  /* border: solid 2px slategrey;
-  border-radius: 5px; */
+  border: solid 2px #ff9100;
+  border-radius: 5px;
+}
+
+.imdb-page-link-tag {
+	margin-left: 3px;
 }
 
 .movie-search-info {
