@@ -44,7 +44,6 @@ export default class Home extends Component {
 
   // to see your data before render...you need to wrap your request in a componentWillMount() function
   // componentWillMount() {
-  //
   //   let api_key = '1a18ddb3'
   //   // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
   //   let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`
