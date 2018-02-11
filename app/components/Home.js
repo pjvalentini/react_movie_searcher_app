@@ -70,7 +70,8 @@ export default class Home extends Component {
           return (
             <div className="movie-search-movie">
               {/* wrap this img tag in an atag...add the according redirect target: blank... */}
-              <img className="movie-poster" src={this.state.title.Poster}/>
+              {/* remember to add https:// to the url or the link will not redirect */}
+              <a href={"https://www.imdb.com/title/" + this.state.title.imdbID} target="_blank"><img className="movie-poster" src={this.state.title.Poster}/></a>
               <div className="movie-search-info">
                 <div className="movie-title"><span>Title: </span><span style={{color: "slategray"}}>{this.state.title.Title}</span></div>
                 <div className="movie-year"><span>Year: </span><span style={{color: "slategray"}}>{this.state.title.Year}</span></div>
