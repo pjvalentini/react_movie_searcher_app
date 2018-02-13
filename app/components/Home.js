@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 // fetch does not work for api calls in react
 // axios does
 // https://medium.com/@thejasonfile/fetch-vs-axios-js-for-making-http-requests-2b261cdd3af5
-import axios from 'axios';
+import omdb_api from './../api/omdb_api';
 
 export default class Home extends Component {
   constructor(props) {
@@ -16,26 +16,13 @@ export default class Home extends Component {
       title: undefined
     };
   }
-  searchMovies(e) {
-    e.preventDefault();
-
-    let movie = this.refs.movieSearcher.value.split(" ").join("+").toLowerCase();
-    console.log(movie);
-    if(movie.length > 3){
-      let api_key = '1a18ddb3'
-      let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
-
-      axios.get(api_url, {
-        headers: {
-          'content-type': 'application/json',
-          'accept': 'application/json'
-        }
-      }).then((results) => {
-        console.log(results)
+  searchMovies() {
+    if(this.refs.movieSearcher.value.length > 3) {
+      omdb_api(this.refs.movieSearcher.value.split(" ").join("+").toLowerCase()).then((res) => {
+        console.log(res)
         this.setState({
-          title: results.data
+          title: res.data
         })
-        console.log(results.data)
       });
     }
   }
