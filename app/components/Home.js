@@ -77,7 +77,7 @@ export default class Home extends Component {
       }
       return (
         <div>
-          <h3 className="movie-header">React Movie Searcher</h3>
+          <h3 className="movie-header">OMDB Movie Searcher</h3>
           <form>
             <input
                className="movie-input"
