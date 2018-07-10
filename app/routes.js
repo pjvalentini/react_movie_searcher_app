@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 //imported the react-router
 /*
 	No more backend routes to connect to your front end files

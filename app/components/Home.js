@@ -1,9 +1,7 @@
 // This is the non-babel way to import
 // var React = require("react");
-
 // This is the babel way
 import React, {Component} from 'react';
-
 // fetch does not work for api calls in react
 // axios does
 // https://medium.com/@thejasonfile/fetch-vs-axios-js-for-making-http-requests-2b261cdd3af5
@@ -19,21 +17,19 @@ export default class Home extends Component {
   searchMovies() {
     if(this.refs.movieSearcher.value.length > 3) {
       omdb_api(this.refs.movieSearcher.value.split(" ").join("+").toLowerCase()).then((res) => {
-        console.log(res)
+        console.log(res);
         this.setState({
           title: res.data
-        })
+        });
       });
     }
   }
 
-
-
-  // to see your data before render...you need to wrap your request in a componentWillMount() function
+  // // to see your data before render...you need to wrap your request in a componentWillMount() function
   // componentWillMount() {
-  //   let api_key = '1a18ddb3'
+  //   let api_key = '60f7bdd3';
   //   // let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t=${movie}`
-  //   let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`
+  //   let api_url = `http://www.omdbapi.com/?apikey=${api_key}&t`;
   //
   //   axios.get(api_url, {
   //     headers: {
@@ -41,7 +37,7 @@ export default class Home extends Component {
   //       'accept': 'application/json'
   //     }
   //   }).then((results) => {
-  //     console.log(results)
+  //     console.log(results);
   //     this.setState({
   //       title: results.data
   //     })
@@ -50,7 +46,7 @@ export default class Home extends Component {
   // }
 
   render() {
-      console.log(this.state.title)
+      console.log(this.state.title);
       const displayMovieSearch = () => {
         if(this.state.title) {
           return (
